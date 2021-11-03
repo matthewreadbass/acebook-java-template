@@ -15,14 +15,14 @@ public class TestService {
 
   @Before
   public void setup() {
-      System.setProperty("webdriver.chrome.driver", chromedriver);
-      driver = new ChromeDriver();
-      faker = new Faker();
+    System.setProperty("webdriver.chrome.driver", chromedriver);
+    driver = new ChromeDriver();
+    faker = new Faker();
   }
 
   @After
   public void tearDown() {
-      driver.close();
+    driver.close();
   }
   
   public String signUp() {
