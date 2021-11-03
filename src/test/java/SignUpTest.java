@@ -13,7 +13,7 @@ public class SignUpTest {
   private final TestService testService;
 
   public SignUpTest(TestService testService) {
-    this.testService = testService;
+    this.testService = new TestService();
   }
 
   @Test

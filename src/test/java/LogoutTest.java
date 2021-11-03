@@ -12,7 +12,7 @@ public class LogoutTest {
   private final TestService testService;
 
   public LogoutTest(TestService testService) {
-    this.testService = testService;
+    this.testService = new TestService();
   }
 
   @Test
