@@ -3,6 +3,7 @@ import org.junit.Test;
 
 import com.makersacademy.acebook.Application;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -12,8 +13,9 @@ public class SignUpTest {
 
   private final TestService testService;
 
+  @Autowired // dependency injection - auto-instantiate the class
   public SignUpTest(TestService testService) {
-    this.testService = new TestService();
+    this.testService = testService;
   }
 
   @Test
