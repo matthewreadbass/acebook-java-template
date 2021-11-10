@@ -63,13 +63,9 @@ public class ReverseChronologicalPostsTest {
 
         List<WebElement> content = driver.findElements(By.className("text"));
         List<String> postsInDisplayedOrder = new ArrayList<String>();
-        int i = 0;
         for (WebElement contentElement : content) {
             String webElementString = contentElement.getText();
-            if ( i <= 3) {
-                postsInDisplayedOrder.add(webElementString);
-            }
-        i++;
+            postsInDisplayedOrder.add(webElementString);
         }
         List<String> expectedList = Arrays.asList( "4", "3", "2", "1");
         Assert.assertEquals(expectedList, postsInDisplayedOrder);
