@@ -2,8 +2,12 @@ package com.makersacademy.acebook.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -70,9 +74,9 @@ public void setContent(String content) {
 }
 
 public String createTimestamp() {
-  Date date = Calendar.getInstance().getTime();
-  DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
-  String timestamp = dateFormat.format(date);
+  Date date = Calendar.getInstance().getTime(); // creates date instance of current time
+  DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); // formatter to convert date instance to string 
+  String timestamp = dateFormat.format(date); // parse date object in to formatter
   return timestamp;
 }
 
@@ -81,7 +85,19 @@ public void setTimestamp(String timestamp) {
 }
 
 public String getTimestamp() {
-  return this.timestamp;
+  try {
+    String longTimestamp = this.timestamp; // returns original timestamp - format 2021-11-12 11:40:29.568
+    java.util.Date longTimestampAsDateObject = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(longTimestamp); // formats original timestamp
+    DateFormat dateToStringFormatter = new SimpleDateFormat("dd/MM/yyyy HH:mm"); // new formatter for date to string
+    String postsTimestamp = dateToStringFormatter.format(longTimestampAsDateObject); // formats longTimestampAsDateObject in to a string
+    return postsTimestamp;
+  }
+  catch (Exception e) {
+    String longTimestamp = this.timestamp;
+    return longTimestamp;
+  }
+  
+  
 }
 
 public String getPhoto() {
