@@ -12,15 +12,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-// @ContextConfiguration(classes = Application.class)
 @SpringBootTest(classes = Application.class)
-// @DataJpaTest
 public class ReverseChronologicalPostsTest {
 
     WebDriver driver;
