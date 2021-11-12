@@ -19,22 +19,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(dataSource);
+        auth.jdbcAuthentication().dataSource(dataSource);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-               .antMatchers("/posts").hasRole("USER")
-               .antMatchers("/users").permitAll()
-               .and().formLogin();
+        http.
+                authorizeRequests()
+                .antMatchers("/posts")
+                .hasRole("USER")
+                .antMatchers("/users")
+                .permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll();
     }
 
     @Bean
     public PasswordEncoder getPasswordEncoder() {
-    return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
-
 
 }
