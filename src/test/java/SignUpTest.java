@@ -41,6 +41,6 @@ public class SignUpTest {
         driver.findElement(By.id("password")).sendKeys("password");
         driver.findElement(By.id("submit")).click();
         String title = driver.getTitle();
-        Assert.assertEquals("Please sign in", title);
+        Assert.assertEquals("Acebook Please log in", title);
     }
 }

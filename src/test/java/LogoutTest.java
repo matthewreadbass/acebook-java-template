@@ -51,6 +51,6 @@ public class LogoutTest {
     // driver.get("http://localhost:8080/posts");
     driver.findElement(By.className("navbar-logout")).click();
     String title = driver.getTitle();
-    Assert.assertEquals("Please sign in", title);
+    Assert.assertEquals("Acebook Please log in", title);
   }
 }

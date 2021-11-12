@@ -61,7 +61,7 @@ public class ReverseChronologicalPostsTest {
         driver.findElement(By.id("content-input")).sendKeys("4");
         driver.findElement(By.id("submit-post-btn")).click();
 
-        List<WebElement> content = driver.findElements(By.className("text"));
+        List<WebElement> content = driver.findElements(By.className("post-text"));
         List<String> postsInDisplayedOrder = new ArrayList<String>();
         int i = 0;
         for (WebElement contentElement : content) {
